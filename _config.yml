@@ -1,28 +1,28 @@
 # Site Settings
-baseurl: ""
-url : "https://naye0ng.github.io"
+baseurl: "https://rindakim.github.io"
+url : "https://RinDa525.github.io"
 
 # Blog Settings
 theme_settings :
-  title : Grape Theme
+  title : simple blog
   favicon : assets/favicon.ico
 
   # Profile Settings
   profile :
     image : assets/img/smile.png
-    username : Nayeong Kim
-    description : creator of Grape-Theme! Grape-Theme is my first jekyll theme and you can customize this theme easily.
+    username : Rinda Kim
+    description : Student studying computer science. specipically, AI and Data Analysis
     experience :
-      - start : 2017-05-03
-        end : 2018-05-06
-        experience : company name, title
+      - start : 2021-03-01
+        end : 2023-03-01
+        experience : Hanyang Univ(ERICA), smart ICT
     skills : 
       - skill : HTML5 & CSS
         value : 85  # Percent value
         
   # Icons
   icons :
-    email:  # Full email address, e.g. "sample@google.com"
+    email:  darin5@hanyang.ac.kr
     linkedin:  # Full URL 
     github: naye0ng
     gitlab: 

@@ -1,5 +1,5 @@
 # Site Settings
-baseurl: "https://RinDa525.github.io"
+baseurl: ""
 url : "https://rindakim.github.io"
 
 # Blog Settings
@@ -13,9 +13,9 @@ theme_settings :
     username : Rinda Kim
     description : Student studying computer science. specipically, AI and Data Analysis
     experience :
-      - start : 2021-03-01
-        end : 2023-03-01
-        experience : Hanyang Univ(ERICA), smart ICT
+      - start : 2017-10-01
+        end : 2019-03-27
+        experience : Hanyang Univ ERICA, smart ICT
     skills : 
       - skill : HTML5 & CSS
         value : 85  # Percent value

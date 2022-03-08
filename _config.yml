@@ -5,7 +5,7 @@ url : "https://rindakim.github.io"
 # Blog Settings
 theme_settings :
   title : Rinda Kim tech blog
-  favicon : assets/favicon.ico
+  favicon : assets/clover.ico
   # Profile Settings
   profile :
     image : assets/img/memoticon.png

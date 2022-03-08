@@ -1,14 +1,14 @@
 - project :
     print : True # If 'False' is selected, it will not be displayed in 'home.html > aside > .proj-content'. 
     modal : True # If 'True' is selected, modal can open in 'portfolio.html'. 
-    url : https://github.com/naye0ng/Grape-Theme # Full URL
+    url : https://rinda525.github.io/ # Full URL
     image : "portfolio.png" # path: assets/project/
-    date : 2019.06.09 - Developing
-    title : Grape-Theme
-    summary : A awesome jekyll theme!
-    description : This project is my first jekyll theme. and everyone can customize this easily.  
+    date : 2022.03.14 - Developing
+    title : Smart ICT Capstone Project 1
+    summary : Univercity Personal assignment
+    description : This project is my first personal capstone.  
     contents :
-        - title : 1. 블로그 첫 화면 구성
+        - title : 1. 프로젝트 구성
           image : home.png
           description : <li>Responsive Layout</li>
             <li>User Profile</li> 
@@ -28,11 +28,11 @@
             <li>gem 배포</li> 
 
 - project :
-    print : True # If 'False' is selected, it will not be displayed in 'home.html > aside > .proj-content'. 
+    print : False # If 'False' is selected, it will not be displayed in 'home.html > aside > .proj-content'. 
     modal : True # If 'True' is selected, modal can open in 'portfolio.html'. 
     url :  # Full URL
     image : # path: assets/project/
-    date : 2019.06.09 - Developing
+    date : 2022.03.01 - Developing
     title : Dummy project
     summary : This is Dummy
     description :  

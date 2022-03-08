@@ -1,7 +1,7 @@
 - project :
     print : True # If 'False' is selected, it will not be displayed in 'home.html > aside > .proj-content'. 
     modal : True # If 'True' is selected, modal can open in 'portfolio.html'. 
-    url : https://rinda525.github.io/ # Full URL
+    url : https://github.com/RinDa525/RinDa525.github.io # Full URL
     image : "portfolio.png" # path: assets/project/
     date : 2022.03.14 - Developing
     title : Smart ICT Capstone Project 1

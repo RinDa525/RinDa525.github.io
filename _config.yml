@@ -12,9 +12,9 @@ theme_settings :
     username : Rinda Kim
     description : Student studying computer science. specipically, AI and Data Analysis
     experience :
-      - start : 2022-03-01
+      - start : 2021-03-01
         end : 2022-03-08
-        experience : Hanyang Univ ERICA, smart ICT
+        experience : Hanyang Univ (ERICA), smart ICT
     skills : 
       - skill : Python
         value : 50  # Percent value

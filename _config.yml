@@ -4,27 +4,27 @@ url : "https://rindakim.github.io"
 
 # Blog Settings
 theme_settings :
-  title : Rinda Kim portfolio n tech blog
+  title : Rinda Kim tech blog
   favicon : assets/favicon.ico
 
   # Profile Settings
   profile :
-    image : assets/img/smile.png
+    image : assets/img/memoticon.png
     username : Rinda Kim
     description : Student studying computer science. specipically, AI and Data Analysis
     experience :
-      - start : 2017-10-01
-        end : 2019-03-27
+      - start : 2022-03-01
+        end : 2022-03-08
         experience : Hanyang Univ ERICA, smart ICT
     skills : 
-      - skill : HTML5 & CSS
-        value : 85  # Percent value
+      - skill : Python
+        value : 50  # Percent value
         
   # Icons
   icons :
     email:  darin5@hanyang.ac.kr
     linkedin:  # Full URL 
-    github: naye0ng
+    github: RinDa525
     gitlab: 
     bitbucket: 
     google_plus:

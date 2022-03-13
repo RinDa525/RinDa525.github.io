@@ -198,5 +198,19 @@ cv2.imshow(road)
 # 위치 알 수 있도록 점 찍어서 표시해둠
 {% endhighlight %}
 
+<br>
+{% highlight html %}
+plt.subplot(121)
+plt.imshow(road[:,:,::-1])
+plt.title('image')
+
+plt.subplot(122)
+plt.imshow(dst[:,:,::-1])
+plt.title('Perspective')
+
+plt.show()
+{% endhighlight %}
+따로 RGB2BGR 과정을 거치지 않고 matplotlib으로 비교하기 위하여 이미지 행렬을 리버스 해주었다. 
+
 ![Perspective Transformation](/assets/img/Perspect.png){: .width-80}
 

@@ -11,16 +11,16 @@ comments : True
 그 외에 헷갈렸던 부분이나 추가적인 정보들을 찾아서 기록하고 있습니다. 
 https://youtu.be/XiwA10RfbDk
 
-<br>
-
-<br>
+<br><br>
 
 <h2>1. Resize</h2>
-<p>이미지의 사이즈 변경을 위해선 픽셀 사이의 값을 결정해주어야 한다. 
+<p>이미지의 사이즈 변경을 위해선 픽셀 사이의 값을 결정해주어야 한다. </p>
 <br>
+
+<p>
 - 보간법(Interpolation method)
 <br>
-  실질적 변수 x의 함수f(x)의 모양은 미지이지나 어떤 간격을 가지는 2개 이상의 함수값이 알려져 있을 경우, 그 사이의 임의의 x에 대한 함수값을 추정하는 것. <br>
+  실질적 변수 x의 함수f(x)의 모양은 미지이나 어떤 간격을 가지는 2개 이상의 함수값이 알려져 있을 경우, 그 사이의 임의의 x에 대한 함수값을 추정하는 것. <br>
   사이즈를 줄일 때 : 'cv2. INTER_AREA' <br>
   사이즈를 늘릴 때 : 'cv2.INTER_CUBIC', 'cv2.INTER_LINEAR' <br>
   cv2.resize(img,Mask,fx=a, fy=b, interpolation=cv2.INTER_AREA)
@@ -31,6 +31,8 @@ image=cv2.imread('/content/moon.jpg')
 print(image.shape)
 {% endhighlight %}
 >> (640, 960, 3)
+
+<br>
 {% highlight html %}
 height, width = image.shape[:2]
 shrink=cv2.resize(image,None,fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA) //이미지 사이즈를 50%, 50%씩 줄여 2배 작게 만듦 
@@ -38,62 +40,86 @@ zoom1=cv2.resize(image, (width*2, height*2), interpolation=cv2.INTER_CUBIC) // �
 zoom2=cv2.resize(image,None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC)
 {% endhighlight %}
 
+
+<br><br>
+
+
 <h2>2. Translation</h2>
+<p>
+  'cv2.warpAffine()'
+  <br>
+  이미지의 위치를 변경할 수 있다. 
+  <br>
+  src : 이미지 파일 이름
+  M : 변환 행렬
+  dsize(tuple) : output image size
+  
+</p>
+
 {% highlight html %}
-<h1>This is heading 1</h1>
-<h2>This is heading 2</h2>
-<h3>This is heading 3</h3>
-<h4>This is heading 4</h4>
-<h5>This is heading 5</h5>
-<h6>This is heading 6</h6>
+rows, cols = image.shape[:2]
+M=np.float32([[1,0,20], [0,1,40]])
+dst=cv2.warpAffine(image,M, (cols, rows))
+
+cv2_imshow(dst)
 {% endhighlight %}
-<h1>This is heading 1</h1>
-<h2>This is heading 2</h2>
-<h3>This is heading 3</h3>
-<h4>This is heading 4</h4>
-<h5>This is heading 5</h5>
-<h6>This is heading 6</h6>
 
-<br>
-
-<p>This is normal text - <b>and this is bold text</b>.</p>
-
-<br>
+<br> <br>
 
 <h2>3. Rotate</h2>
-<h3>a. unordered list</h3>
-{% highlight html %}
-- Coffee
-- Tea
-- Milk
-{% endhighlight %}
-- Coffee
-- Tea
-- Milk
 
-<h3>b. ordered list</h3>
+<p>
+'cv2.getRotationMatrix2D()'
+  
+  물체를 표면 상의 한점을 중심으로 세타만큼 회전하는 변환
+  양의 각도는 시계반대방향으로 회전한다. 
+</p>
 {% highlight html %}
-1. Coffee
-2. Tea
-3. Milk
-{% endhighlight %}
-1. Coffee
-2. Tea
-3. Milk
+print(image.shape)
 
-<br>
+rows, cols = image.shape[:2]
+
+M=cv2.getRotationMatrix2D((cols/2, rows/2), 60, 0.5)
+dst=cv2.warpAffine(image,M,(cols, rows))
+{% endhighlight %}
+>>(640, 960, 3)
+
+
+{% highlight html %}
+cv2_imshow(dst)
+{% endhighlight %}
+
+
+<br><br>
 
 <h2>4. Flip</h2>
-{% highlight html %}
-[naye0ng's blog](https://naye0ng.github.io)
-{% endhighlight %}
-[naye0ng's blog](https://naye0ng.github.io)
+<p>
+'cv2.flip()' 
+  
+대칭 변환
+  - 좌우대칭
+  - 상하대칭
+입력 영상과 출력 영상의 픽셀이 1:1로 매칭되어 보간법이 필요없다. 
+</p>
 
-<br>
+{% highlight html %}
+img=cv2.imread('/content/moon.jpg')
+print(img.shape)
+
+img=cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+plt.imshow(img)
+plt.show()
+
+result1=cv2.flip(img, 1) 
+#양수면 좌우 대칭, 0은 상하대칭, 음수이면 상하,좌우 대칭을 모두 실행 
+{% endhighlight %}
+
+
+<br><br>
 
 <h2>5. Affine Transformation</h2>
-선의 평행선은 유지하면서 이미지를 변환하는 작업. 
-이동, 확대, Scale, 반전까지 포함된 변환이다.
+선의 평행선은 유지하면서 이미지를 변환하는 작업. <br>
+이동, 확대, Scale, 반전까지 포함된 변환이다.<br>
 Affine 변환을 위해선 3개의 점이 필요하다. 행렬변환을 사용하는데 이에 대한 개념은 본 블로그를 참고 했다. 
 https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=wndrlf2003&logNo=221547082953
 {% highlight html %}
@@ -111,6 +137,9 @@ M=cv2.getAffineTransform(pts1, pts2)
 
 dst=cv2.warpAffine(image, M, (cols, rows))
 {% endhighlight %}
+<br>
+
+
 
 <br>
 
@@ -125,8 +154,49 @@ Perspective(원근법) 변환으로, 직선의 성질만 유지되고 선의 평
 * 'abs()'는 파이썬에서 절대값을 구하는 함수이다. 
 
 {% highlight html %}
-| Header 1  | Header 2 | Header 3 |
-| :------- | :-------: | -------: |
-| Content 1  | Content 2 | Content 3 |
-| Content 1  | Content 2 | Content 3 |
+road=cv2.imread('/content/train.jpg')
+print(road.shape)
 {% endhighlight %}
+>> (720, 481, 3)
+
+![Affine Trans](assets/img/Affine Trans.PNG){: .width-80}
+
+<br><br>
+
+{% highlight html %}
+top_left= (180,300)
+top_right=(270,300)
+bottom_left=(80,550)
+bottom_right=(400,550)
+
+pts1=np.float32([top_left, top_right, bottom_right, bottom_left])
+
+w1=abs(bottom_right[0] - bottom_left[0])
+w2=abs(top_right[0]-top_left[0])
+w3=abs(top_right[1]-bottom_right[1])
+w4=abs(top_left[1]-bottom_left[1])
+
+max_width = max([w1,w2])
+max_height = max([h1,h2])
+
+pts2=np.float32([[0,0],
+                [max_width-1,0],
+                [max_width-1, max_height-1],
+                [0,max_height-1]])
+{% endhighlight %}
+<br>
+{% highlight html %}
+{% endhighlight %}
+<br>
+{% highlight html %}
+cv2.circle(road, top_left, 10, (255,0,0),-1)
+cv2.circle(road, top_right, 10, (0,255,0),-1)
+cv2.circle(road, bottom_left, 10, (0,0,255),-1)
+cv2.circle(road, bottom_right, 10, (255,255,255),-1)
+
+cv2.imshow(road)
+# 위치 알 수 있도록 점 찍어서 표시해둠
+{% endhighlight %}
+
+![Perspective Transformation](/assets/img/Perspect.png){: .width-80}
+

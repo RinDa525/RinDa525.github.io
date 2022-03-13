@@ -8,9 +8,25 @@ comments : True
 ---
 
 본 글에 있는 내용은 개인적인 공부 기록용이며 유튜브의 이수안컴퓨터연구소 님이 올려주신 'OpenCV 한번에 끝내기' 과정을 따라하고 있습니다. 
-그 외에 헷갈렸던 부분이나 추가적인 정보들을 찾아서 기록하고 있습니다. 
-https://youtu.be/XiwA10RfbDk
+<br>그 외에 헷갈렸던 부분이나 추가적인 정보들을 찾아서 기록하고 있습니다. 
+<br>https://youtu.be/XiwA10RfbDk
 
+<br><br>
+<h2>0. Environment Setting</h2>
+- 작성자는 구글 코랩에서 코드를 확인하였다. openCV 공부를 이 포스트만 하고 끝낼 게 아니라 기본적인 import 코드는 적어두지 않아서 따로 라이브러리 세팅 공간을 만들어 적어두었다. 
+- 당연히 아래의 라이브러리들을 추가시키지 않고 코드를 실행시키면 모두 오류가 나니 먼저 import 해준 뒤 아래의 코드들을 실행시켜야 한다. 
+{% highlight html %}
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+from PIL import Image
+import requests
+from io import BytesIO
+
+from google.colab.patches import cv2_imshow
+{% endhighlight %}
 <br><br>
 
 <h2>1. Resize</h2>
